@@ -19,8 +19,12 @@ public class StudentDao {
 		System.out.println("DAO selectOneStudent() arg:"+ studentNo);
 		
 		StudentVo result = null;
-		String query = "select * from tb_student where student_no = "+"'"+studentNo+"'";
-		String query2 = "select s.*, (select department_name from tb_department where department_no=s.department_no) department_name from tb_student s where student_no = "+"'"+studentNo+"'";
+//		String query = "select * from tb_student where student_no = "+"'"+studentNo+"'";
+		String query = "select s.*, (select department_name from tb_department where department_no=s.department_no) department_name from tb_student s where student_no = "+"'"+studentNo+"'";
+//		String query = "select s.* "
+//				+ " , (select department_name from tb_department where department_no=s.department_no) department_name "
+//				+ " from tb_student s where student_no = ?";
+		// ? 위치홀더
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -35,7 +39,9 @@ public class StudentDao {
 //				System.out.println("연결 성공");
 //			}
 			pstmt = conn.prepareStatement(query);
-			pstmt = conn.prepareStatement(query2);
+			// pstmt 생성된 후 ---- execute실행하기 전
+			// 여기서 ? 위치홀더에 값넣기
+//			pstmt.setString(0, studentNo);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
 				result =new StudentVo();
