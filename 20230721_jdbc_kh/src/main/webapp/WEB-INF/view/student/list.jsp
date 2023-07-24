@@ -34,7 +34,7 @@
 		
 		<tr>
 			<td><a href="<%=request.getContextPath()%>/student/get?sno=<%=vo.getStudentNo() %>"><%=vo.getStudentNo() %></td>
-			<td><%=vo.getStudentName() %></td>
+			<td><a href="<%=request.getContextPath()%>/student/get?sno=<%=vo.getStudentNo() %>"><%=vo.getStudentName() %></td>
 			<td><%=vo.getEntranceDate() %></td>
 		</tr>
 		

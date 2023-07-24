@@ -1,4 +1,4 @@
-package kh.test.jdbckh.student.model.dao;
+package kh.test.jdbckh.department.model.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,19 +9,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import kh.test.jdbckh.student.model.vo.StudentVo;
+import kh.test.jdbckh.department.model.vo.DepartmentVo;
 
-public class StudentDao {
-// PPT 내용구현
-	
-	// DB에서 tb_student 테이블의 전달받은 학번을 통해 학생1명의 상세정보를 읽어옴.
-	public StudentVo selectOneStudent(String studentNo) {
-		System.out.println("DAO selectOneStudent() arg:"+ studentNo);
-		
-		StudentVo result = null;
-		String query = "select * from tb_student where student_no = "+"'"+studentNo+"'";
-		String query2 = "select s.*, (select department_name from tb_department where department_no=s.department_no) department_name from tb_student s where student_no = "+"'"+studentNo+"'";
-		
+public class DepartmentDao {
+	public DepartmentVo selectOneDepartment(String departmentNo){
+		DepartmentVo result = null;
+		String query = "select * from tb_department where department_no = "+"'"+departmentNo+"'";
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -35,20 +28,15 @@ public class StudentDao {
 //				System.out.println("연결 성공");
 //			}
 			pstmt = conn.prepareStatement(query);
-			pstmt = conn.prepareStatement(query2);
 			rset = pstmt.executeQuery();
 			if(rset.next()) {
-				result =new StudentVo();
+				result =new DepartmentVo();
 				// while 동작시킬필요없음. query 결과가 단일행일 것이므로
-				result.setAbsenceYn(rset.getString("Absence_Yn"));
-				result.setCoachProfessorNo(rset.getString("Coach_Professor_No"));
 				result.setDepartmentNo(rset.getString("Department_No"));
-				result.setEntranceDate(rset.getDate("Entrance_Date"));
-				result.setStudentAddress(rset.getString("Student_Address"));
-				result.setStudentName(rset.getString("Student_Name"));
-				result.setStudentNo(rset.getString("Student_No"));
-				result.setStudentSsn(rset.getString("Student_Ssn"));
 				result.setDepartmentName(rset.getString("Department_Name"));
+				result.setCategory(rset.getString("Category"));
+				result.setOpenYn(rset.getString("Open_Yn"));
+				result.setCapacity(rset.getInt("Capacity"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,8 +54,8 @@ public class StudentDao {
 	}
 	
 	// DB에서 tb_student 테이블에 있는 모든 내용을 읽어서 꺼냄.
-	public List<StudentVo> selectListStudent() {
-		List<StudentVo> result = null;
+	public List<DepartmentVo> selectListDepartment() {
+		List<DepartmentVo> result = null;
 		Connection conn = null;
 		Statement stmt = null;
 		PreparedStatement pstmt = null;
@@ -83,28 +71,25 @@ public class StudentDao {
 			}
 			// 3. Statement/PrepareStatement 객체 생성 -conn 객체로부터 - query 문을 실어보냄
 //			stmt = conn.createStatement();
-			String query = "select * from tb_student";
+			String query = "select * from tb_department";
 			pstmt = conn.prepareStatement(query);
 			// 4. query 문을 실행해달라고 함. 그 결과값을 return 받음.
 			// select query 문이면 ResultSet 모양
 			// insert/update/delete 문이면 int 모양
-			ResultSet rs = pstmt.executeQuery();
+			ResultSet  rs = pstmt.executeQuery();
 			
 			// 5. ResultSet 에서 row(record)=한줄 읽어오기 위해 cursor(포인트)를 이동함.
-			result = new ArrayList<StudentVo>();
+			result = new ArrayList<DepartmentVo>();
 			while(rs.next() == true) {
 				// 한줄row/record 를 읽을 준비 완료
 				// 확인용도. System.out.println( rs.getString("STUDENT_NAME") );
 				// System.out.println( rs.getString("컬럼명") );
-				StudentVo vo = new StudentVo();
-				vo.setStudentNo( rs.getString("student_no"));
-				vo.setDepartmentNo( rs.getString("department_no"));
-				vo.setStudentName( rs.getString("Student_Name"));
-				vo.setStudentSsn( rs.getString("Student_Ssn"));
-				vo.setStudentAddress( rs.getString("Student_Address"));
-				vo.setEntranceDate( rs.getDate("Entrance_Date"));
-				vo.setAbsenceYn( rs.getString("Absence_Yn"));
-				vo.setCoachProfessorNo(rs.getString("Coach_Professor_No"));
+				DepartmentVo vo = new DepartmentVo();
+				vo.setDepartmentNo( rs.getString("Department_No"));
+				vo.setDepartmentName( rs.getString("Department_Name"));
+				vo.setCategory( rs.getString("Category"));
+				vo.setOpenYn( rs.getString("Open_Yn"));
+				vo.setCapacity( rs.getInt("Capacity"));
 				
 				result.add(vo);
 			}
@@ -133,8 +118,5 @@ public class StudentDao {
 		
 		// 확인용 System.out.println(result);
 		return result;
-	}
-	public void getStudentList() {
-		
 	}
 }
