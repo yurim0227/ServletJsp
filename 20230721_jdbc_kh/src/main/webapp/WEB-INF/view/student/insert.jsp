@@ -20,30 +20,32 @@
 					<td><input type="text" name="departmentNo"></td>
 				</tr>
 				<tr>
-					<th>StudentName</th>
-					<td><input type="text" name="StudentName"></td>
+					<th>studentName</th>
+					<td><input type="text" name="studentName"></td>
 				</tr>
 				<tr>
-					<th>StudentSsn</th>
-					<td><input type="text" name="StudentSsn"></td>
+					<th>studentSsn</th>
+					<td><input type="text" name="studentSsn"></td>
 				</tr>
 				<tr>
-					<th>StudentAddress</th>
-					<td><input type="text" name="StudentAddress"></td>
+					<th>studentAddress</th>
+					<td><input type="text" name="studentAddress"></td>
 				</tr>
 				<tr>
 					<th>entranceDate yyyy-mm-dd</th>
 					<td><input type="text" name="entranceDate"></td>
 				</tr>
 				<tr>
-					<th>absenceYn</th>
+					<td>absenceYn</td>
 					<td><input type="text" name="absenceYn"></td>
 				</tr>
 				<tr>
-					<th>coachProfessorNo</th>
+					<td>coachProfessorNo</td>
 					<td><input type="text" name="coachProfessorNo"></td>
 				</tr>
 			</table>
+			
+			<button type="submit">학생등록</button>
 		</form>
 	</div>
 </body>

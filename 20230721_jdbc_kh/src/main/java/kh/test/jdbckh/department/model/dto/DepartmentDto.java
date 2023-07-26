@@ -1,21 +1,20 @@
-package kh.test.jdbckh.department.model.vo;
+package kh.test.jdbckh.department.model.dto;
 
-public class DepartmentVo {
-//	--------------- -------- ------------ 
+public class DepartmentDto {
 //	DEPARTMENT_NO   NOT NULL VARCHAR2(10) 
 //	DEPARTMENT_NAME NOT NULL VARCHAR2(40) 
 //	CATEGORY                 VARCHAR2(40) 
 //	OPEN_YN                  CHAR(1)      
-//	CAPACITY                 NUMBER
+//	CAPACITY                 NUMBER  
 	private String departmentNo;
 	private String departmentName;
 	private String category;
 	private String openYn;
-	private int capacity;
+	private Integer capacity;
 	@Override
 	public String toString() {
-		return "DepartmentVo [departmentNo=" + departmentNo + ", departmentName=" + departmentName + ", category="
-				+ category + ", open_yn=" + openYn + ", capacity=" + capacity + "]";
+		return "DepartmentDto [departmentNo=" + departmentNo + ", departmentName=" + departmentName + ", category="
+				+ category + ", openYn=" + openYn + ", capacity=" + capacity + "]";
 	}
 	public String getDepartmentNo() {
 		return departmentNo;
@@ -41,10 +40,10 @@ public class DepartmentVo {
 	public void setOpenYn(String openYn) {
 		this.openYn = openYn;
 	}
-	public int getCapacity() {
+	public Integer getCapacity() {
 		return capacity;
 	}
-	public void setCapacity(int capacity) {
+	public void setCapacity(Integer capacity) {
 		this.capacity = capacity;
 	}
 	

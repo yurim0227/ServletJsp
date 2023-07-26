@@ -19,7 +19,7 @@ public class StudentService {
 	public int insertStudent(StudentVo vo) {
 		int result = 0;
 		Connection conn = getConnection();
-		result = dao.insertStudent(conn,vo);
+		result = dao.insertStudent(conn, vo);
 		close(conn);
 		return result;
 	}

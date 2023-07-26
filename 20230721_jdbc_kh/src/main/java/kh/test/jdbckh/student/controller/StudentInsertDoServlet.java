@@ -24,32 +24,31 @@ public class StudentInsertDoServlet extends HttpServlet {
      */
     public StudentInsertDoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 // doGet() 메소드 삭제
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 한글 깨짐 방지 --> TODO filter
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		String studentNo = request.getParameter("studentNo");
 		String departmentNo = request.getParameter("departmentNo");
 		String studentName = request.getParameter("studentName");
 		String studentSsn = request.getParameter("studentSsn");
 		String studentAddress = request.getParameter("studentAddress");
 		//오류 Date entranceDate = request.getParameter("entranceDate");
-		String entranceDateStr = request.getParameter("entranceDate");
+		String entranceDate = request.getParameter("entranceDate");
 		String absenceYn = request.getParameter("absenceYn");
 		String coachProfessorNo = request.getParameter("coachProfessorNo");
-		StudentVo vo = new StudentVo(studentNo, departmentNo, studentName, studentSsn, studentAddress, absenceYn, coachProfessorNo);
+		StudentVo vo = new StudentVo(studentNo, departmentNo, studentName, studentSsn, studentAddress,entranceDate, absenceYn, coachProfessorNo);
 //		StudentVo vo = new StudentVo();
 //		vo.setAbsenceYn(absenceYn);
 //		vo.setCoachProfessorNo(coachProfessorNo);
 //		vo.setDepartmentNo(departmentNo);
-//		vo.setEntranceDate(null);
+//		vo.setEntranceDate(entranceDate);
 //		vo.setStudentAddress(studentAddress);
 //		vo.setStudentName(studentName);
 //		vo.setStudentNo(studentNo);
@@ -57,13 +56,13 @@ public class StudentInsertDoServlet extends HttpServlet {
 		System.out.println("[insert servlet] "+vo);
 		
 		StudentService service = new StudentService();
-		//int result = service.insertStudent(vo);
+		int result = service.insertStudent(vo);
 		
 //		if(result < 1) {
 //		//TODO
 //		}
-		response.sendRedirect(request.getContextPath()+"/student/list");
-		
+		response.sendRedirect(request.getContextPath()+"/student/list");		
+	
 	}
 
 }
