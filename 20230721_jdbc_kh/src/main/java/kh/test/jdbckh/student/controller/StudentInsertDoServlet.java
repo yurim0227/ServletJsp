@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kh.test.jdbckh.student.model.service.StudentService;
+import kh.test.jdbckh.student.model.vo.StudentVo;
+
 /**
  * Servlet implementation class StudentInsertDoServlet
  */
@@ -41,7 +44,25 @@ public class StudentInsertDoServlet extends HttpServlet {
 		String entranceDateStr = request.getParameter("entranceDate");
 		String absenceYn = request.getParameter("absenceYn");
 		String coachProfessorNo = request.getParameter("coachProfessorNo");
+		StudentVo vo = new StudentVo(studentNo, departmentNo, studentName, studentSsn, studentAddress, absenceYn, coachProfessorNo);
+//		StudentVo vo = new StudentVo();
+//		vo.setAbsenceYn(absenceYn);
+//		vo.setCoachProfessorNo(coachProfessorNo);
+//		vo.setDepartmentNo(departmentNo);
+//		vo.setEntranceDate(null);
+//		vo.setStudentAddress(studentAddress);
+//		vo.setStudentName(studentName);
+//		vo.setStudentNo(studentNo);
+//		vo.setStudentSsn(studentSsn);
+		System.out.println("[insert servlet] "+vo);
 		
+		StudentService service = new StudentService();
+		//int result = service.insertStudent(vo);
+		
+//		if(result < 1) {
+//		//TODO
+//		}
+		response.sendRedirect(request.getContextPath()+"/student/list");
 		
 	}
 
