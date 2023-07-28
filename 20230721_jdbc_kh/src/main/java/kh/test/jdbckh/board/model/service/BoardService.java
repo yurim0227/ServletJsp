@@ -1,4 +1,4 @@
-package kh.test.jdbckh.board.model.dao;
+package kh.test.jdbckh.board.model.service;
 
 import static kh.test.jdbckh.common.jdbc.JdbcTemplate.close;
 import static kh.test.jdbckh.common.jdbc.JdbcTemplate.getConnectionKhl;
@@ -6,6 +6,7 @@ import static kh.test.jdbckh.common.jdbc.JdbcTemplate.getConnectionKhl;
 import java.sql.Connection;
 import java.util.List;
 
+import kh.test.jdbckh.board.model.dao.BoardDao;
 import kh.test.jdbckh.board.model.dto.BoardDto;
 
 public class BoardService {
