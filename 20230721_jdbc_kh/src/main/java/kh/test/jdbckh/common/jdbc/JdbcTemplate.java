@@ -100,5 +100,33 @@ public class JdbcTemplate {
 			e.printStackTrace();
 		}
 	}
+
+	public static void commit(Connection conn) {
+		try {
+			if(conn!=null) {
+				conn.commit();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void rollback(Connection conn) {
+		try {
+			if(conn!=null) {
+				conn.rollback();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	public static void setAutoCommit(Connection conn, boolean autoCommit) {
+		try {
+			if(conn!=null) {
+				conn.setAutoCommit(false);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
