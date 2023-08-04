@@ -24,4 +24,11 @@ public class DepartmentService {
 		close(conn);
 		return result;
 	}
+	public int insert(DepartmentDto dto) {
+		int result = 0;
+		Connection conn = getConnection();
+		result = dao.insert(conn, dto);
+		close(conn);
+		return result;
+	}
 }

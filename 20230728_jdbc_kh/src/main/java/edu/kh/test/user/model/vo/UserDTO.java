@@ -14,6 +14,13 @@ public class UserDTO {
 	
 	public UserDTO() {
 	}
+	
+	public UserDTO(String userId, String userName, Integer userAge) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userAge = userAge;
+	}
 	public UserDTO(Integer userNo, String userId, String userName, Integer userAge) {
 		super();
 		this.userNo = userNo;

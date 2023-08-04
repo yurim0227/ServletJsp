@@ -63,4 +63,23 @@ public class DepartmentDao {
 		}
 		return result;
 	}
+	public int insert(Connection conn, DepartmentDto dto) {
+		int result = 0;
+		String query = "insert into tb_department values (?,?,?,?,?)";
+		PreparedStatement pstmt = null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, String.valueOf(dto.getDepartmentNo()));
+			pstmt.setString(2, dto.getDepartmentName());
+			pstmt.setString(3, dto.getCategory());
+			pstmt.setString(4, dto.getOpenYn());
+			pstmt.setString(5, dto.getCapacity());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+		}
+		return result;
+	}
 }
