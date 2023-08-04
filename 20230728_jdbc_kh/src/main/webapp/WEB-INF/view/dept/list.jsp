@@ -1,3 +1,5 @@
+<%@page import="kh.test.jdbckh.department.model.dto.DepartmentDto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -7,6 +9,7 @@
 <title>학과 리스트</title>
 </head>
 <body>
+	<%List<DepartmentDto> dtoList = (List<DepartmentDto>)request.getAttribute("list"); %>
 	<h2>학과 리스트</h2>
 	<form action="<%=request.getContextPath() %>/dept/get" method="get">
 		학과 번호 : 
@@ -22,6 +25,16 @@
 			<td>개설여부</td>
 			<td>정원</td>
 		</tr>
+		<%for(int i=0; i<dtoList.size(); i++){
+		DepartmentDto dto = dtoList.get(i); %>
+		<tr>
+			<td><%=dto.getDepartmentNo() %></td>
+			<td><%=dto.getDepartmentName() %></td>
+			<td><%=dto.getCategory() %></td>
+			<td><%=dto.getOpenYn() %></td>
+			<td><%=dto.getCapacity() %></td>
+		</tr>
+		<%} %>
 	</table>
 </body>
 </html>
