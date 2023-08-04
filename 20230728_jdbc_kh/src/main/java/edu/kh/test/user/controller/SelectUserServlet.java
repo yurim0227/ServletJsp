@@ -31,8 +31,8 @@ public class SelectUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserService servie = new UserService();
-		List<UserDTO> result = servie.selectList();
+		UserService service = new UserService();
+		List<UserDTO> result = service.selectList();
 		System.out.println(result);
 		request.setAttribute("list", result);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);

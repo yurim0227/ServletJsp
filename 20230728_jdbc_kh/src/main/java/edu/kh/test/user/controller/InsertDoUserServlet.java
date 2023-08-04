@@ -1,4 +1,4 @@
-package edu.kh.test.user.common.jdbc;
+package edu.kh.test.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
