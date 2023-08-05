@@ -18,7 +18,7 @@ public class PasswordFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest httpRequest = (HttpServletRequest)request;
 		PasswordWrapper pwrapper = new PasswordWrapper(httpRequest);
-		chain.doFilter(httpRequest, response); // request 대신 wrapper 거친 값을 넣어줌
+		chain.doFilter(pwrapper, response);  // request 대신 wrapper 거친 값을 넣어줌
 	}
 	
 
