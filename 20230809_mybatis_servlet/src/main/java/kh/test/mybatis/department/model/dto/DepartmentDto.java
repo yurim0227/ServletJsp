@@ -1,4 +1,4 @@
-package kh.test.jdbckh.department.model.dto;
+package kh.test.mybatis.department.model.dto;
 
 public class DepartmentDto {
 //	DEPARTMENT_NO   NOT NULL VARCHAR2(10) 
