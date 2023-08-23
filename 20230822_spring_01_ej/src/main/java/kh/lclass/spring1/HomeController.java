@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,7 +39,17 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "aaa/a1";
+	}
+	
+	@GetMapping("/aaa/a2")
+	//@RequestMapping(value = "/aaa/a2", method = RequestMethod.GET)
+	public void a2() {
+	}
+	
+	@RequestMapping(value = "/aaa/a1", method = RequestMethod.GET)
+	public String a1() {
+		return "aaa/a1";
 	}
 	
 }
