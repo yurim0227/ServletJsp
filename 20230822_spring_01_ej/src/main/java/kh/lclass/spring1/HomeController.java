@@ -27,7 +27,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		logger.trace("trace");
 		logger.debug("debug");
-		logger.info("Welcome home! The client locale is {}sdfsdfsd.", locale,2312);
+		logger.info("Welcome home! The client locale is {}sdfsdfsd{}.", locale,2312);
 		// 앞으로 sysout은 정말정말 급하고 임의의 로그 볼때.. 곧바로 지워질 메시지 찍을때
 		logger.warn("warn");
 		logger.error("error");
