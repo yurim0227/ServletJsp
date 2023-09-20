@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>user get</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<c:choose>
@@ -19,7 +19,7 @@
 			나이: ${userGet.userAge}
 		</c:when>
 		<c:otherwise>
-			<h2>정보가 없습니다.</h2>
+			<h2>X</h2>
 		</c:otherwise>
 	</c:choose>
 </body>
