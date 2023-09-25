@@ -42,7 +42,6 @@ public class TbUserController {
 				redirectAttr.addFlashAttribute("msg", "실패했습니다. 다시 입력하고 등록해주세요.");
 				viewPage = "redirect:/user/insert";
 			} else {
-				redirectAttr.addFlashAttribute("msg", "성공했습니다.");
 				viewPage = "redirect:/user/list";
 			}
 		} catch (Exception e) {

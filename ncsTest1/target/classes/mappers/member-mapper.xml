@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="member">
+	<resultMap type="member" id="memberResultSet">
+		<id column="member_id" property="memberId"/>
+		<result column="member_pwd" property="memberPwd"/>
+		<result column="member_nm" property="memberName"/>
+		<result column="member_enroll_dt" property="memberEnrollDt"/>
+	</resultMap>
+	<select id="loginMember" resultMap="memberResultSet">
+		select * from member where member_id = #{memberId} and member_pwd = #{memberPwd}
+	</select>
+	<insert id="joinMember" parameterType="member">
+		insert into member (member_id, member_pwd, member_nm) values (#{memberId}, #{memberPwd}, #{memberName})
+	</insert>
+	<select id="listMember" resultMap="memberResultSet">
+		select * from member
+	</select>
+	<delete id="deleteMember" parameterType="member">
+		delete from member where member_id = #{memberId}
+	</delete>
+</mapper>

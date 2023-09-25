@@ -39,7 +39,6 @@ public class TbUserController {
 				redirectAttr.addFlashAttribute("msg", "실패");
 				mv.setViewName("redirect:/user/insert");
 			} else {
-				redirectAttr.addFlashAttribute("msg", "성공");
 				mv.setViewName("redirect:/user/list");
 			}
 		} catch (Exception e) {
