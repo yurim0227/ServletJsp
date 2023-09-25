@@ -18,7 +18,6 @@ public class MemberDAO {
 		return sqlSession.selectOne("member.loginMember", member);
 	}
 	
-	@Transactional
 	public int joinMember(Member member) throws Exception{
 		return sqlSession.insert("member.joinMember", member);
 	}
@@ -29,5 +28,9 @@ public class MemberDAO {
 	
 	public int deleteMember(Member member) throws Exception{
 		return sqlSession.delete("member.deleteMember", member);
+	}
+	
+	public int updateMember(Member member) throws Exception{
+		return sqlSession.update("member.updateMember", member);
 	}
 }

@@ -12,4 +12,6 @@ public interface MemberService {
 	List<Member> listMember() throws Exception;
 	
 	int deleteMember(Member member) throws Exception;
+	
+	int updateMember(Member member) throws Exception;
 }

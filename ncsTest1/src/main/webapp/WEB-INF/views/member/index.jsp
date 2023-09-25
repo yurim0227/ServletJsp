@@ -33,10 +33,15 @@
 		<table>
 			<tr>
 				<td>${item.memberId}</td>
-				<td><button onclick="deleteMember('${item.memberId}')">삭제</button></td>
+				<td><button onclick="deleteMember('${item.memberId}')">회원탈퇴</button></td>
 			</tr>
 		</table>
 	</c:forEach>
+	<form action="update" method="post">
+		<label> ID : </label> <input type="text" name="memberId">
+		<br>
+		<button>회원정보 수정</button>
+	</form>
 	<script>
 	    function deleteMember(memberId) {
 	    	$.ajax({

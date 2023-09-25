@@ -19,4 +19,7 @@
 	<delete id="deleteMember" parameterType="member">
 		delete from member where member_id = #{memberId}
 	</delete>
+	<update id="updateMember" parameterType="member">
+		update member set member_id = #{memberId}
+	</update>
 </mapper>

@@ -85,4 +85,26 @@ public class MemberController {
 			return "error/errorPage";
 		}
 	}
+	
+	@GetMapping("/update")
+	public String memberUpdate() throws Exception {
+		return "member/index";
+	}
+	
+	@PostMapping("/update")
+	public String memberUpdate(Model model, Member member) throws Exception {
+		int updateMember = memberService.updateMember(member);
+		try {
+			if(updateMember < 1) {
+				model.addAttribute("msg", "회원정보 수정 실패");
+				return "error/errorPage";
+			} else {
+				return "redirect:/update";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("msg", "회원정보 수정 실패");
+			return "error/errorPage";
+		}
+	}
 }
