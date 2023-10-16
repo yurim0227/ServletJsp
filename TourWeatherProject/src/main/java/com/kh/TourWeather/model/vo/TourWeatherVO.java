@@ -20,19 +20,19 @@ public class TourWeatherVO {
 		this.pop = pop;
 	}
 
-	public String getSportAreaName() {
+	public String getSpotAreaName() {
 		return spotAreaName;
 	}
 
-	public void setSportAreaName(String spotAreaName) {
+	public void setSpotAreaName(String spotAreaName) {
 		this.spotAreaName = spotAreaName;
 	}
 
-	public String getSportName() {
+	public String getSpotName() {
 		return spotName;
 	}
 
-	public void setSportName(String spotName) {
+	public void setSpotName(String spotName) {
 		this.spotName = spotName;
 	}
 
